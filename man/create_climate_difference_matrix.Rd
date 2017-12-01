@@ -15,11 +15,11 @@ create_climate_difference_matrix(output_file_name, target_data_percentiles,
 
 \item{target_data_percentiles}{output of the function brick_calc_percentiles for the 'target' region and time period.}
 
-\item{target_data_monthly_mean_growing_season}{output of the function of brick_calc_seasonality for the 'target' region and time period.}
+\item{target_data_monthly_mean_growing_season}{output of the function of \code{transform_monthly_means_into_growing_season_means} for the 'target' region and time period.}
 
-\item{comparison_data_percentiles}{output of the function brick_calc_percentiles for the 'comparison' region and time period.}
+\item{comparison_data_percentiles}{output of the function \code{brick_calc_percentiles} for the 'comparison' region and time period.}
 
-\item{comparison_data_monthly_mean_growing_season}{output of the function of brick_calc_seasonality for the 'comparison' region and time period.}
+\item{comparison_data_monthly_mean_growing_season}{output of the function of transform_monthly_means_into_growing_season_means for the 'comparison' region and time period.}
 
 \item{target_coordinates}{must be a named list in the form of: list(x=x_vals,y=y_vals) in coordinates that match the input data; or, the full file PATH to a shapefile}
 }
@@ -34,7 +34,7 @@ The 'target' is grid that contains the location and time period you wish to comp
 
 This function requires the outputs from for both the 'target' and the 'comparison' grids:
 \code{brick_calc_percentiles}: a raster brick of 99 layers, each representating the percentiles from the a specific set of ' source, variable, time period, region'.
-\code{brick_calc_seasonality}: a raster brick of 12 layers, each representing the monthly mean value for each month of the 'growing season'.  NB: 'growing season' monthly means is when the southern hemisphere has been offset by 6 months, so seasons 'align' globally (as much as they can be, i.e. in the Northern Hemisphere, 1=January, 12=December; in the Southern Hemisphere, 1=July, 12=June).
+\code{transform_monthly_means_into_growing_season_means}: a raster brick of 12 layers, each representing the monthly mean value for each month of the 'growing season'.  NB: 'growing season' monthly means is when the southern hemisphere has been offset by 6 months, so seasons 'align' globally (as much as they can be, i.e. in the Northern Hemisphere, 1=January, 12=December; in the Southern Hemisphere, 1=July, 12=June).
 }
 \examples{
 #I need to put in an example

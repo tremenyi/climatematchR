@@ -5,6 +5,7 @@ Authors@R: person("Tom", "Remenyi", email = "tom.remenyi@utas.edu.au", role = c(
 Description: This function estimates the relative difference of a single cell in the 'target' grid to every cell in the comparison grid. It is desinged for climate variables, but could be used for any grid (in theory).  It takes pecentiles and growing season monthly means as inputs to compare the values of the variables of interest.  It does not check that the 'target' and 'comparison' grids are in the same projection, or are the same variable, that is the responsibility of the user.  
 Depends: R (>= 3.3.1)
 Imports: raster, sp
+Suggests: RNetCDF
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
