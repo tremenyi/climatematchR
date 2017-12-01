@@ -1,13 +1,3 @@
-# Required packages:  raster, sp
-
-# Purpose:  calculate the difference between a single cell and the rest of a grid.
-#  Inputs are the outputs from "/mnt/WineAustralia_working_files/scripts/climate_matching_calculate_period_stats.r":
-#    - climate data percentiles 1-99 for the target time period
-#    - 'growing season' monthly means for the target time period
-#    - climate data percentiles 1-99 for the comparison time period
-#    - 'growing season' monthly means for the comparison time period
-#       NB: 'growing season' monthly means is when the southern hemisphere has been offset by 6 months, so seasons 'align' globally (as much as they can).
-
 #' Climate matching
 #'
 #' This function is designed to compare climatic values of one variable in two different time periods from a specific region.
@@ -16,7 +6,7 @@
 #'
 #' This function requires the outputs from for both the 'target' and the 'comparison' grids:
 #'   `brick_calc_percentiles`: a raster brick of 99 layers, each representating the percentiles from the a specific set of ' source, variable, time period, region'.
-#'   `brick_calc_seasonality`: a raster brick of 12 layers, each representing the monthly mean value for each month of the 'growing season' (i.e. in the Northern Hemisphere, 1=January, 12=December; in the Southern Hemisphere, 1=July, 12=June).
+#'   `brick_calc_seasonality`: a raster brick of 12 layers, each representing the monthly mean value for each month of the 'growing season'.  NB: 'growing season' monthly means is when the southern hemisphere has been offset by 6 months, so seasons 'align' globally (as much as they can be, i.e. in the Northern Hemisphere, 1=January, 12=December; in the Southern Hemisphere, 1=July, 12=June).
 #'
 #' @param output_file_name path to output file
 #' @param target_data_percentiles output of the function brick_calc_percentiles for the 'target' region and time period.
