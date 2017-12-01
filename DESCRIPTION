@@ -1,0 +1,12 @@
+Package: climatematchR
+Title: This function is designed to compare climatic values of one variable in two different time periods from a specific site/region
+Version: 1.0.0.0
+Authors@R: person("Tom", "Remenyi", email = "tom.remenyi@utas.edu.au", role = c("aut", "cre"))
+Description: This function estimates the relative difference of a single cell in the 'target' grid to every cell in the comparison grid. It is desinged for climate variables, but could be used for any grid (in theory).  It takes pecentiles and growing season monthly means as inputs to compare the values of the variables of interest.  It does not check that the 'target' and 'comparison' grids are in the same projection, or are the same variable, that is the responsibility of the user.  
+Depends: R (>= 3.3.1)
+Imports: raster, sp
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Roxygen: list(markdown=TRUE)
