@@ -10,7 +10,7 @@
 #' @examples
 #' #I need to put in an example...
 extract_and_combine_time_from_netcdf_files <- function(nc_files_list){
-  if(!loadNamespace("RNetCDF")){stop("RNetCDF package required.")}
+  if(!requireNamespace("RNetCDF")){stop("RNetCDF package required.")}
   out_time_POSIXct <- unlist(lapply(nc_files_list, function(target_file){
     tmp_nc <- RNetCDF::open.nc(target_file)
     tmp_time_unitstring <- RNetCDF::att.get.nc(ncfile = tmp_nc, variable = "time", attribute = "units")
