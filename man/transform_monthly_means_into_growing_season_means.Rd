@@ -18,7 +18,7 @@ Gowing seasons are approximately offset by 12 months between the Northern and So
 }
 \examples{
 #I need to add an exmple...
-tmp_file <- "/place/where/i/keep/my/data"
-tmp_brick <- brick(tmp_file)
-tmp_out <- transform_monthly_means_into_growing_season_means(tmp_brick)
+#tmp_file <- "/place/where/i/keep/my/data"
+#tmp_brick <- brick(tmp_file)
+#tmp_out <- transform_monthly_means_into_growing_season_means(tmp_brick)
 }

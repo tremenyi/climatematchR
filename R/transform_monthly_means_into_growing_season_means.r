@@ -9,9 +9,9 @@
 #'
 #' @examples
 #' #I need to add an exmple...
-#' tmp_file <- "/place/where/i/keep/my/data"
-#' tmp_brick <- brick(tmp_file)
-#' tmp_out <- transform_monthly_means_into_growing_season_means(tmp_brick)
+#' #tmp_file <- "/place/where/i/keep/my/data"
+#' #tmp_brick <- brick(tmp_file)
+#' #tmp_out <- transform_monthly_means_into_growing_season_means(tmp_brick)
 transform_monthly_means_into_growing_season_means <- function(brick_of_monthly_means){
   extent_northern_hemisphere <- raster::extent(0, 360, 0, 90)
   extent_southern_hemisphere <- raster::extent(0, 360, -90, 0)
