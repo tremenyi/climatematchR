@@ -37,8 +37,9 @@ create_climate_difference_matrix <- function(
     cat("\nInput variable target_coordinates is defined with a shapefile.\n")
     target_shape_raw <- raster::shapefile(target_coordinates)
     target_shape_matched_projection <- sp::spTransform(target_shape_raw, raster::projection(target_data_percentiles))
-    target_cells <- unlist(lapply(raster::cellFromPolygon(target_data_percentiles, target_shape_matched_projection, weights=TRUE),function(x){as.integer(x[which.max(x[,2]),1])})) #selects the cell with the greatest overlap from the group
-    names(target_cells) <- target_shape_raw$NAME
+    target_cells_tmp <- unlist(lapply(raster::cellFromPolygon(target_data_percentiles, target_shape_matched_projection, weights=TRUE),function(x){as.integer(x[which.max(x[,2]),1])})) #selects the cell with the greatest overlap from the group
+    #names(target_cells_tmp) <- target_shape_raw$NAME
+    target_cells <- sort(unique(target_cells_tmp))
     } else {
       stop("The 'target_coordinates' entered do not match what is expected, check they are the correct type or format." )
     }#close if is.character(target_coordinates)
