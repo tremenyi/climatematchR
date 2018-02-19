@@ -55,12 +55,13 @@ create_climate_difference_matrix <- function(
     target_cell_percentiles_brick <- target_data_percentiles
     values(target_cell_percentiles_brick) <- rep(as.vector(raster::extract(target_data_percentiles, target_cell)), each=raster::ncell(target_data_percentiles))
     #difference_function <- function(x, y){ ((x-y)^2) / sqrt(sd(x)*sd(y))  } #Experimental idea - needs to happen, but unclear exactly how.
-    diff_percentile <- raster::calc(comparison_data_percentiles - target_cell_percentiles_brick, function(x){sum(abs(x))})
+    diff_percentile <- raster::calc(comparison_data_percentiles - target_cell_percentiles_brick, function(x){mean(abs(x))})
     #calculate difference for growing season monthly means
     target_cell_monthly_mean_growing_season_brick <- target_data_monthly_mean_growing_season
     raster::values(target_cell_monthly_mean_growing_season_brick) <- rep(as.vector(raster::extract(target_data_monthly_mean_growing_season, target_cell)), each=raster::ncell(target_data_monthly_mean_growing_season))
-    diff_monthly_mean_growing_season <- raster::calc(comparison_data_monthly_mean_growing_season - target_cell_monthly_mean_growing_season_brick, function(x){sum(abs(x))})
-    diff_climate <- (diff_percentile/max(raster::values(diff_percentile)) + diff_monthly_mean_growing_season/max(raster::values(diff_monthly_mean_growing_season)))/2
+    diff_monthly_mean_growing_season <- raster::calc(comparison_data_monthly_mean_growing_season - target_cell_monthly_mean_growing_season_brick, function(x){mean(abs(x))})
+    #TOM: For now we combine these in the next step. But we could probably do some cool plots by keeping both of these grids separate and plotting everything on a two axes together.
+    diff_climate <- sqrt((diff_percentile^2) + (diff_monthly_mean_growing_season^2))
     list_of_diff_matrices[[target_ind]] <- diff_climate
     if(length(names(target_cells)) > 0){
       names(list_of_diff_matrices[[target_ind]]) <- sprintf("%s-%s", names(target_cells), as.character(target_cell))
